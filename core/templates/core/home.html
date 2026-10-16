@@ -1,0 +1,202 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareerLens AI | Your Career, In Focus</title>
+    <style>
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f8f5;
+            color: #183b2b;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 22px 8%;
+            background: white;
+            border-bottom: 1px solid #e5ebe6;
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: bold;
+            color: #176b45;
+        }
+
+        nav a {
+            color: #426052;
+            text-decoration: none;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 75px 20px 45px;
+        }
+
+        .tag {
+            color: #176b45;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        h1 {
+            font-size: clamp(36px, 5vw, 58px);
+            line-height: 1.15;
+            margin: 20px 0;
+        }
+
+        h1 span { color: #219568; }
+
+        .hero p {
+            color: #68796e;
+            line-height: 1.8;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .workspace {
+            max-width: 1000px;
+            margin: 0 auto 70px;
+            padding: 30px;
+            background: white;
+            border: 1px solid #e4ebe5;
+            border-radius: 18px;
+            box-shadow: 0 12px 40px #183b2b0b;
+        }
+
+        .workspace > p { color: #68796e; }
+
+        .cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px;
+            margin-top: 25px;
+        }
+
+        .card {
+            border: 1px solid #e1e9e2;
+            border-radius: 12px;
+            padding: 22px;
+        }
+
+        .card p {
+            color: #68796e;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .upload {
+            display: block;
+            margin-top: 18px;
+            padding: 24px 12px;
+            text-align: center;
+            border: 2px dashed #b8d8c3;
+            border-radius: 10px;
+            background: #f8fcf9;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 145px;
+            margin-top: 18px;
+            padding: 12px;
+            border: 1px solid #dce5dd;
+            border-radius: 8px;
+            font: inherit;
+            resize: vertical;
+        }
+
+        input[type="file"] {
+            display: block;
+            width: 100%;
+            margin-top: 14px;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 25px;
+            padding: 15px;
+            border: 0;
+            border-radius: 9px;
+            background: #176b45;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover { background: #125537; }
+
+        footer {
+            padding: 25px;
+            text-align: center;
+            color: #748278;
+            font-size: 13px;
+        }
+
+        @media (max-width: 650px) {
+            .cards { grid-template-columns: 1fr; }
+            .workspace { margin: 0 14px 40px; padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">CareerLens AI</div>
+        <a href="#workspace">Get Started →</a>
+    </nav>
+
+    <section class="hero">
+        <div class="tag">YOUR CAREER, IN FOCUS</div>
+        <h1>Your next career move<br>
+            starts with <span>clarity.</span>
+        </h1>
+        <p>
+            Discover how well your resume matches your dream job.
+            Identify skill gaps, improve your resume, and build a
+            roadmap towards your career goals.
+        </p>
+    </section>
+
+    <main class="workspace" id="workspace">
+        <h2>Let's analyse your career potential.</h2>
+        <p>Upload your resume and add the job description to get started.</p>
+
+        <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+            <div class="cards">
+                <section class="card">
+                    <h3>01. Your Resume</h3>
+                    <p>Upload your resume in PDF or Word format.</p>
+                    <label class="upload">
+                        Choose your resume
+                        <input type="file" name="resume"
+                               accept=".pdf,.docx">
+                    </label>
+                </section>
+
+                <section class="card">
+                    <h3>02. Your Target Role</h3>
+                    <p>Paste the job description you want to match.</p>
+                    <textarea name="job_description"
+                        placeholder="Paste the job description here..."></textarea>
+                </section>
+            </div>
+
+            <button type="submit">Analyse My Resume →</button>
+        </form>
+    </main>
+
+    <footer>
+        CareerLens AI · Make your next move with confidence.
+    </footer>
+</body>
+</html>

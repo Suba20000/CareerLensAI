@@ -1,0 +1,240 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareerLens AI | Analysis Results</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f8f5;
+            color: #183b2b;
+            line-height: 1.6;
+        }
+
+        nav {
+            background: white;
+            padding: 20px 8%;
+            border-bottom: 1px solid #e1eae3;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: bold;
+            color: #176b4d;
+        }
+
+        nav a {
+            color: #176b4d;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 55px 20px 35px;
+        }
+
+        .eyebrow {
+            color: #19845b;
+            font-weight: bold;
+            letter-spacing: 3px;
+            font-size: 12px;
+            margin-bottom: 12px;
+        }
+
+        h1 {
+            font-size: clamp(30px, 5vw, 44px);
+            margin-bottom: 12px;
+        }
+
+        .subtitle {
+            color: #718078;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .container {
+            max-width: 1050px;
+            margin: 0 auto;
+            padding: 0 24px 60px;
+        }
+
+        .status {
+            background: #e5f4e9;
+            border: 1px solid #cce8d4;
+            border-radius: 12px;
+            padding: 17px 20px;
+            margin-bottom: 24px;
+            color: #176b4d;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px;
+            margin-bottom: 22px;
+        }
+
+        .card {
+            background: white;
+            border: 1px solid #e1eae3;
+            border-radius: 16px;
+            padding: 26px;
+            box-shadow: 0 5px 18px rgba(24, 59, 43, 0.04);
+            min-width: 0;
+        }
+
+        .card h2 {
+            font-size: 19px;
+            margin-bottom: 14px;
+        }
+
+        .muted {
+            color: #718078;
+            font-size: 14px;
+        }
+
+        .file {
+            margin-top: 12px;
+            padding: 15px;
+            background: #f4f8f5;
+            border-radius: 9px;
+            overflow-wrap: anywhere;
+        }
+
+        .description {
+            white-space: pre-wrap;
+            overflow-wrap: anywhere;
+            max-height: 260px;
+            overflow-y: auto;
+            color: #52645a;
+            font-size: 14px;
+            margin-top: 12px;
+        }
+
+        .next {
+            text-align: center;
+            padding: 28px;
+            background: white;
+            border: 1px solid #e1eae3;
+            border-radius: 16px;
+        }
+
+        .next h2 {
+            margin-bottom: 10px;
+        }
+
+        .next p {
+            color: #718078;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            display: inline-block;
+            background: #176b4d;
+            color: white;
+            padding: 13px 25px;
+            border-radius: 9px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            background: #10563d;
+        }
+
+        footer {
+            text-align: center;
+            padding: 24px;
+            color: #829087;
+            font-size: 13px;
+        }
+
+        @media (max-width: 700px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                padding: 18px 5%;
+            }
+
+            .card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">CareerLens AI</div>
+        <a href="/">← Back to Home</a>
+    </nav>
+
+    <header class="hero">
+        <div class="eyebrow">YOUR CAREER, IN FOCUS</div>
+        <h1>Your analysis workspace</h1>
+        <p class="subtitle">
+            Your resume and target role are ready for the next stage
+            of your career journey.
+        </p>
+    </header>
+
+    <main class="container">
+        <div class="status">
+            ✓ &nbsp; <strong>Resume received successfully</strong>
+            <div class="muted">
+                Your files have been submitted. AI analysis is not yet enabled.
+            </div>
+        </div>
+
+        <div class="grid">
+            <section class="card">
+                <h2>01. Your Resume</h2>
+                <p class="muted">Uploaded document</p>
+
+                <div class="file">
+                    📄 &nbsp; {{ resume_name }}
+                </div>
+            </section>
+
+            <section class="card">
+                <h2>02. Your Target Role</h2>
+                <p class="muted">
+                    Job description provided for matching
+                </p>
+
+                <div class="description">{{ job_description }}</div>
+            </section>
+        </div>
+
+        <section class="next">
+            <h2>Ready to discover your career potential?</h2>
+            <p>
+                The next development stage will extract your skills,
+                identify gaps, and calculate your job-match score.
+            </p>
+            <a class="button" href="/">
+                Analyse Another Resume →
+            </a>
+        </section>
+    </main>
+
+    <footer>
+        CareerLens AI · Make your next move with confidence.
+    </footer>
+</body>
+</html>
